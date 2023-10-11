@@ -1,0 +1,6 @@
+mesh: "/assets/models/simple_soccerball.glb"
+material: "/assets/models/vcolor.material"
+skeleton: ""
+animations: ""
+default_animation: ""
+name: "ball"
