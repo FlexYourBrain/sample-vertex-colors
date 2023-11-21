@@ -7,7 +7,7 @@
 attribute highp vec4 position;
 attribute mediump vec2 texcoord0;
 attribute mediump vec3 normal;
-attribute mediump vec4 color;
+attribute mediump vec4 color; // When exporting 3d model the vertex color data was exported as well. Here we use it with color attribute.
 
 uniform mediump mat4 mtx_worldview;
 uniform mediump mat4 mtx_view;
@@ -28,7 +28,7 @@ void main()
     var_position = p;
     var_texcoord0 = texcoord0;
     var_normal = normalize((mtx_normal * vec4(normal, 0.0)).xyz);
-    var_color = color;
+    var_color = color; // we set the color attribute into a varying to use in the fragment shader.
     
     gl_Position = mtx_proj * p;
 }
