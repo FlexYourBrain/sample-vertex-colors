@@ -2,13 +2,11 @@
 
 in vec4 var_position;
 in vec3 var_normal;
-in vec2 var_texcoord0;
 in vec4 var_light;
 in vec4 var_color; // we declare the varying color attribute we sent from the vertex program.
 
 out vec4 color_out;
 
-uniform sampler2D tex0;
 uniform fs_uniforms
 {
     vec4 tint;
