@@ -1,11 +1,18 @@
-varying highp vec4 var_position;
-varying mediump vec3 var_normal;
-varying mediump vec2 var_texcoord0;
-varying mediump vec4 var_light;
-varying mediump vec4 var_color; // we declare the varying color attribute we sent from the vertex program.
+#version 140
 
-uniform lowp sampler2D tex0;
-uniform lowp vec4 tint;
+in vec4 var_position;
+in vec3 var_normal;
+in vec2 var_texcoord0;
+in vec4 var_light;
+in vec4 var_color; // we declare the varying color attribute we sent from the vertex program.
+
+out vec4 color_out;
+
+uniform sampler2D tex0;
+uniform fs_uniforms
+{
+    vec4 tint;
+};
 
 void main()
 {
@@ -19,6 +26,6 @@ void main()
     diff_light = max(dot(var_normal,diff_light), 0.0) + ambient_light;
     diff_light = clamp(diff_light, 0.0, 1.0);
 
-    gl_FragColor = vec4(ballcolor.rgb*diff_light,1.0); // for this sample we display the vertex colors by mixing the varying color attribute with diffuse lighting.
+    color_out = vec4(ballcolor.rgb*diff_light,1.0); // for this sample we display the vertex colors by mixing the varying color attribute with diffuse lighting.
 }
 
