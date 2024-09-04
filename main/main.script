@@ -11,7 +11,7 @@ function init(self)
 
 	
 	-- position directional light
-	self.light = vmath.vector4(0, 0, go.get_position().z + 3, 0)
+	self.light = vmath.vector4(0, 0, go.get_position().z + 4, 0)
 	go.set("/ball#ball", "light", self.light)
 end
 

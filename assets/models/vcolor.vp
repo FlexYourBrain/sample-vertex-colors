@@ -15,13 +15,11 @@ uniform vertex_inputs
 };
 
 in vec4 position;
-in vec2 texcoord0;
 in vec3 normal;
 in vec4 color; // When exporting 3d model the vertex color data was exported as well. Here we use it with color attribute.
 
 out vec4 var_position;
 out vec3 var_normal;
-out vec2 var_texcoord0;
 out vec4 var_light;
 out vec4 var_color;
 
@@ -31,7 +29,6 @@ void main()
     vec4 p = mtx_worldview * vec4(position.xyz, 1.0);
     var_light = mtx_view * vec4(light.xyz, 1.0);
     var_position = p;
-    var_texcoord0 = texcoord0;
     var_normal = normalize((mtx_normal * vec4(normal, 0.0)).xyz);
     var_color = color; // we set the color attribute into a varying to use in the fragment shader.
     
